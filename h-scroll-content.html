@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontal Scrolling Page Template</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+
+        overflow: auto;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .h-container {
+        --hc-width: 100vw;
+        --hc-height: 100vh;
+        --num-section: 4;
+        width: var(--hc-height);
+        height: var(--hc-width);
+        background: black;
+        transform-origin: top left;
+        transform: rotate(-90deg) translateX(calc(var(--hc-height) * -1));
+        overflow-x: hidden;
+      }
+      .h-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .sections {
+        width: calc(var(--hc-width) * var(--num-section));
+        transform-origin: top left;
+        transform: rotate(90deg) translateY(calc(var(--hc-height) * -1));
+        display: flex;
+      }
+
+      .sections section {
+        width: var(--hc-width);
+        height: var(--hc-height);
+        font-size: 32px;
+      }
+
+      .sections section:nth-child(1) {
+        background: red;
+      }
+      .sections section:nth-child(2) {
+        background: green;
+      }
+      .sections section:nth-child(3) {
+        background: blue;
+      }
+      .sections section:nth-child(4) {
+        background: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h-container">
+      <div class="sections">
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+      </div>
+    </div>
+  </body>
+</html>
